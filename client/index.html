@@ -10,21 +10,148 @@
     <meta name="description" content="NG6-Starter by @AngularClass">
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <base href="/">
+
+    <script src="https://cdn.quilljs.com/1.1.3/quill.js"></script>
+    <script src="https://cdn.quilljs.com/1.1.3/quill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <link href="C:\Users\kelvi\OneDrive\Documentos\GitHub\NG6-starter\client\index.css" rel="stylesheet"></link>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet"></link>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet"></link>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
   </head>
   <body ng-app="app" ng-strict-di ng-cloak>
+    <div id="root"></div>
+    <div id="container">
+        
+      <div id="logo">
+          <img src="C:\Users\kelvi\OneDrive\Documentos\GitHub\NG6-starter\client\images\tradetools-logo.svg" id="imgLogo" style="width: 151px; height: 40;" className="App-logo" alt="logo" onclick="abreModalLogo()"/>
+      </div>
+      <br>
+      <br>
+      <div id="campoTextoUm">
+          <div id="toolbar"></div>
+          <div id="editor">
+              <h1>Give your team autonomy while preserving the visual identity of your company</h1>
+          </div>
+      </div>
+      <br>
+      <br>
+      <br>
+  
+      <div id="imagens">
+          <img src="C:\Users\kelvi\OneDrive\Documentos\GitHub\NG6-starter\client\images\imagem1.jpeg" id="imgPrincipal"  onclick="abreModal()"/>
 
-    <app>
-      Loading...
-    </app>
+      </div>
+
+      <br>
+
+      <div id="campoTextoDois">
+          <div id="toolbar"></div>
+          <div id="editor2">
+              <a className="App-link" href="https://www.tradetools.co" rel="noopener noreferrer">www.tradetools.co</a>
+          </div>
+      </div>
+
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-body" style="height: 300px; text-align: center;">
+                      <img src="C:\Users\kelvi\OneDrive\Documentos\GitHub\NG6-starter\client\images\imagem1.jpeg" className="img-trocar" alt="logo" style="height: 100px; width: 100px;" onclick="trocaImg(this)"/>
+                      <img src="C:\Users\kelvi\OneDrive\Documentos\GitHub\NG6-starter\client\images\imagem2.jpg" className="img-trocar" alt="logo" style="height: 100px; width: 100px;" onclick="trocaImg(this)"/>
+                      <img src="C:\Users\kelvi\OneDrive\Documentos\GitHub\NG6-starter\client\images\imagem3.jpg" className="img-trocar" alt="logo" style="height: 100px; width: 100px;" onclick="trocaImg(this)"/>
+                      <img src="C:\Users\kelvi\OneDrive\Documentos\GitHub\NG6-starter\client\images\imagem4.jpg" className="img-trocar" alt="logo" style="height: 100px; width: 100px;" onclick="trocaImg(this)"/>
+                      <br>
+                      <br>
+                      <img src="C:\Users\kelvi\OneDrive\Documentos\GitHub\NG6-starter\client\images\imagem5.jpg" className="img-trocar" alt="logo" style="height: 100px; width: 100px;" onclick="trocaImg(this)"/>
+                      <img src="C:\Users\kelvi\OneDrive\Documentos\GitHub\NG6-starter\client\images\imagem6.jpg" className="img-trocar" alt="logo" style="height: 100px; width: 100px;" onclick="trocaImg(this)"/>
+                      <img src="C:\Users\kelvi\OneDrive\Documentos\GitHub\NG6-starter\client\images\imagem7.jpg" className="img-trocar" alt="logo" style="height: 100px; width: 100px;" onclick="trocaImg(this)"/>
+                      <img src="C:\Users\kelvi\OneDrive\Documentos\GitHub\NG6-starter\client\images\imagem8.jpg" className="img-trocar" alt="logo" style="height: 100px; width: 100px;" onclick="trocaImg(this)"/>
+                  </div>
+              </div>
+  
+          </div>
+      </div>
+
+      <div class="modal fade" id="ModalLogo" tabindex="-1" role="dialog">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-body" style="height: 300px; text-align: center;">
+                      <img src="C:\Users\kelvi\OneDrive\Documentos\GitHub\NG6-starter\client\images\tradetools-logo.svg" className="img-trocar" alt="logo" style="height: 100px; width: 100px;" onclick="trocaImgLogo(this)"/>
+                      <img src="C:\Users\kelvi\OneDrive\Documentos\GitHub\NG6-starter\client\images\logo.svg" className="img-trocar" alt="logo" style="height: 100px; width: 100px;" onclick="trocaImgLogo(this)"/>
+                  </div>
+              </div>
+  
+          </div>
+      </div>
+    </div>
+
+
+    <script>
+
+      var toolbarOptions = [
+        ['bold', 'italic', 'underline', 'strike'],
+        ['blockquote', 'code-block'],
+        [{'header': [1, 2, 3, 4, 5, 6, false]}],
+        [{'list': 'ordered'}, {'list': 'bullet'}],
+        [{'script': 'sub'}, {'script': 'super'}],
+        [{'indent': '-1'}, {'indent': '+1'}],
+        [{'direction': 'rtl'}],
+        [{'size': ['small', false, 'large', 'huge']}],
+        ['link', 'image', 'video', 'formula'],
+        [{'color': []}, {'background': []}],
+        [{'font': []}],
+        [{'align': []}]
+      ];
+
+      var quill = new Quill('#editor', {
+          modules: {
+              toolbar: toolbarOptions
+          },
+          theme: 'snow'
+      });
+      var quill = new Quill('#editor2', {
+          modules: {
+              toolbar: toolbarOptions
+          },
+          theme: 'snow'
+      });
+
+      function abreModal() {
+          $("#myModal").modal({
+              show: true
+          });
+      }
+
+      function trocaImg(imagem){
+          document.getElementById('imgPrincipal').src = imagem.src;
+          $("#myModal").modal('hide');
+      }
+
+      function abreModalLogo() {
+          $("#ModalLogo").modal({
+              show: true
+          });
+      }
+
+      function trocaImgLogo(imagem){
+          document.getElementById('imgLogo').src = imagem.src;
+          $("#ModalLogo").modal('hide');
+      }
+    </script>
+   
 
     <!-- Google Analytics: change UA-71073175-2 to be your site's ID -->
-    <script>
+    <!-- <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-71073175-2', 'auto');
       ga('send', 'pageview');
-    </script>
+    </script> -->
   </body>
 </html>
